@@ -34,7 +34,6 @@ const SpeakerImg = ({ id, firstName, lastName }) => {
 const SpeakerBio = ({
   bio,
   company,
-  favorite,
   twitterHandle,
   last: lastName,
   first: firstName,

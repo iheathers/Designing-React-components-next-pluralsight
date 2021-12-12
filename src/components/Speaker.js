@@ -8,12 +8,14 @@ const Session = ({ session }) => {
   );
 };
 
-const SessionList = ({ sessions }) => {
+const SessionList = ({ sessions, showSessions }) => {
   return (
     <div className="sessionBox card h-250">
-      {sessions.map((session) => (
-        <Session key={session.id} session={session} />
-      ))}
+      {showSessions
+        ? sessions.map((session) => (
+            <Session key={session.id} session={session} />
+          ))
+        : null}
     </div>
   );
 };
@@ -62,7 +64,7 @@ const SpeakerBio = ({
   );
 };
 
-const Speaker = ({ speaker }) => {
+const Speaker = ({ speaker, showSessions }) => {
   const { id, sessions, last: lastName, first: firstName } = speaker;
 
   return (
@@ -71,7 +73,7 @@ const Speaker = ({ speaker }) => {
         <SpeakerImg id={id} firstName={firstName} lastName={lastName} />
         <SpeakerBio {...speaker} />
       </div>
-      <SessionList sessions={sessions} />
+      <SessionList sessions={sessions} showSessions={showSessions} />
     </div>
   );
 };

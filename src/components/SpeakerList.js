@@ -4,9 +4,12 @@ import Speaker from "./Speaker";
 
 import { data } from "../../SpeakerData";
 
+console.log({ data });
+
 const SpeakerList = ({ showSessions }) => {
   const [speakerData, setSpeakerData] = useState(data);
 
+  //   Blew my mind: I realized that the same object was just spread out to new variable 'updatedSpeakerData', updatedSpeakerData is a new array that simply points to same object
   const handleFavoriteToggle = (speakerID) => {
     const selectedSpeaker = speakerData.find(
       (speaker) => speaker.id === speakerID
